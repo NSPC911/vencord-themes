@@ -21,6 +21,7 @@
   border-top: none !important;
   border-bottom: none !important;
   border-right: none !important;
+  isolation: isolate;
   .embedSuppressButton__623de {
     /* fix for it not showing up */
     opacity: calc(1 * var(--wh-always-show-suppress-embed-button)) !important;
