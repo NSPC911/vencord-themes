@@ -4,15 +4,15 @@ reminder that some may not work.
 
 ## in use
 
-- [Chat Related Toasts At Top v2](https://nspc911.github.io/themes/vencord/ChatRelatedToastsAtTopv2.theme.css)
+- [Chat Related Toasts At Top v2](https://nspc911.github.io/vencord-themes/ChatRelatedToastsAtTopv2.theme.css)
 
   Improves the original Chat Related Alerts at Top snippet by reducing the `:has` selector usage as much as possible
 
-- [Members Hide Unless Hover](https://nspc911.github.io/themes/vencord/MembersHideUnlessHover.theme.css)
+- [Members Hide Unless Hover](https://nspc911.github.io/vencord-themes/MembersHideUnlessHover.theme.css)
 
   hide the members list until you hover on it
 
-- [Bordered Embeds](https://nspc911.github.io/themes/vencord/BorderedEmbeds.theme.css)
+- [Bordered Embeds](https://nspc911.github.io/vencord-themes/BorderedEmbeds.theme.css)
 
   Adds borders to embeded contents, like webhooks and previews. Need I say more?
 
@@ -37,9 +37,9 @@ reminder that some may not work.
 
   Fixes Horizontal Server List breaking the extra sidebar of Better Folders
 
-  Use my [HSL Version](https://nspc911.github.io/themes/vencord/HorizontalServerList.theme.css) instead
+  Use my [HSL Version](https://nspc911.github.io/vencord-themes/HorizontalServerList.theme.css) instead
 
-- [Image Zoom Spyglass Lens](https://nspc911.github.io/themes/vencord/vc-spyglass-image-zoom-lens.css)
+- [Image Zoom Spyglass Lens](https://nspc911.github.io/vencord-themes/vc-spyglass-image-zoom-lens.css)
 
   Turns the Image Zoom plugin from Vencord into a spyglass, with an optional zoom animation
 
@@ -52,7 +52,7 @@ reminder that some may not work.
 
   [<kbd>Jump to message</kbd>](https://discord.com/channels/1015060230222131221/1028106818368589824/1430160181357969449)
 
-- [Kinda Chat Bubbles](https://nspc911.github.io/themes/vencord/ChatBubblesKinda.theme.css)
+- [Kinda Chat Bubbles](https://nspc911.github.io/vencord-themes/ChatBubblesKinda.theme.css)
 
   Adds a seamless bubble like appearance to messages
 
@@ -72,7 +72,7 @@ reminder that some may not work.
 
 ## not used
 
-- [Refreshed Seamless Chat Bar](https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css) 📦
+- [Refreshed Seamless Chat Bar](https://nspc911.github.io/vencord-themes/RefreshedSeamlessChatBar.theme.css) 📦
 
   Moves `Someone is typing`, `Cooldown is active`, `You are viewing older messages` and `Replying to someone` such that they are seamless with the message bar
 
@@ -93,11 +93,11 @@ reminder that some may not work.
   }
   ```
 
-- [midnight island chat status](https://nspc911.github.io/themes/vencord/MidnightIslandChatStatus.theme.css) 📦
+- [midnight island chat status](https://nspc911.github.io/vencord-themes/MidnightIslandChatStatus.theme.css) 📦
 
   turns the `x is typing` and `slowmode is enabled` into their separate pills that hover over the chat bat. May not work with non-midnight themes.
 
-- [Chat Related Alerts at Top](https://nspc911.github.io/themes/vencord/ChatRelatedAlertsAtTop.theme.css) 📦
+- [Chat Related Alerts at Top](https://nspc911.github.io/vencord-themes/ChatRelatedAlertsAtTop.theme.css) 📦
 
   Moves the `x number of new messages` and `You are viewing old messages` to the top and make them seamless with each other (down to the button style)
 
@@ -117,7 +117,7 @@ reminder that some may not work.
 
   [<kbd>Jump to message</kbd>](https://discord.com/channels/1015060230222131221/1028106818368589824/1354756324285743216)
 
-- [Blurry Backdrop](https://nspc911.github.io/themes/vencord/BlurryBackdrop.theme.css) 📦
+- [Blurry Backdrop](https://nspc911.github.io/vencord-themes/BlurryBackdrop.theme.css) 📦
 
   Make backdrops formed from full screen elements be blurry
 
@@ -136,7 +136,7 @@ reminder that some may not work.
 
   [<kbd>Jump to message</kbd>](https://discord.com/channels/1015060230222131221/1028106818368589824/1362083384829935920)
 
-- [Blurry Settings Modal](https://nspc911.github.io/themes/vencord/BlurrySettingsModal.theme.css) 📦
+- [Blurry Settings Modal](https://nspc911.github.io/vencord-themes/BlurrySettingsModal.theme.css) 📦
 
   Makes `the.rabbit.disabler`'s '[Make Settings a window](https://discord.com/channels/1015060230222131221/1028106818368589824/1353097168214425693)' snippet have the settings and options background be transparent (i mean literally every element except toggles and buttons :3)
 
@@ -161,7 +161,7 @@ reminder that some may not work.
 
   [<kbd>Jump to message</kbd>](https://discord.com/channels/1015060230222131221/1028106818368589824/1362656483770372219)
 
-- [Client Theme for Visual Refresh](https://nspc911.github.io/themes/vencord/VisualRefreshClientTheme.theme.css) 📦
+- [Client Theme for Visual Refresh](https://nspc911.github.io/vencord-themes/VisualRefreshClientTheme.theme.css) 📦
 
   Adds the compatibility for Client Theme to work on Visual Refresh (may change if Discord fixes the variables)
 
