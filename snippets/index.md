@@ -52,23 +52,9 @@ reminder that some may not work.
 
   [<kbd>Jump to message</kbd>](https://discord.com/channels/1015060230222131221/1028106818368589824/1430160181357969449)
 
-- [Kinda Chat Bubbles](https://nspc911.github.io/vencord-themes/ChatBubblesKinda.theme.css)
+- [midnight island chat status](https://nspc911.github.io/vencord-themes/MidnightIslandChatStatus.theme.css) 📦
 
-  Adds a seamless bubble like appearance to messages
-
-  ```css
-  :root {
-    /* border for the messages          *\
-    \* set to none if you dont want any */
-    --cbk-border: none;
-    /* background for the messages             *\
-    \* set to transparent if you dont want any */
-    --cbk-background: #ffffff11;
-    /* border radius for the messages  *\
-    \* set to 0px if you dont want any */
-    --cbk-border-radius: 10px;
-  }
-  ```
+  turns the `x is typing` and `slowmode is enabled` into their separate pills that hover over the chat bat. May not work with non-midnight themes.
 
 ## not used
 
@@ -93,9 +79,23 @@ reminder that some may not work.
   }
   ```
 
-- [midnight island chat status](https://nspc911.github.io/vencord-themes/MidnightIslandChatStatus.theme.css) 📦
+- [Kinda Chat Bubbles](https://nspc911.github.io/vencord-themes/ChatBubblesKinda.theme.css)
 
-  turns the `x is typing` and `slowmode is enabled` into their separate pills that hover over the chat bat. May not work with non-midnight themes.
+  Adds a seamless bubble like appearance to messages
+
+  ```css
+  :root {
+    /* border for the messages          *\
+    \* set to none if you dont want any */
+    --cbk-border: none;
+    /* background for the messages             *\
+    \* set to transparent if you dont want any */
+    --cbk-background: #ffffff11;
+    /* border radius for the messages  *\
+    \* set to 0px if you dont want any */
+    --cbk-border-radius: 10px;
+  }
+  ```
 
 - [Chat Related Alerts at Top](https://nspc911.github.io/vencord-themes/ChatRelatedAlertsAtTop.theme.css) 📦
 

@@ -7,10 +7,6 @@ Repository of the discord themes I use and have modified
   A collection of CSS Snippets from the Vencord Discord Server.
   Message links from where I took them will be slowly added (I forgot where I took them)
 
-- [Discolored](https://nspc911.github.io/vencord-themes/discolored.theme.css) 📦
-
-  From [NYRI4/Discolored](https://github.com/NYRI4/Discolored)
-
 - [Horizontal Server List](https://nspc911.github.io/vencord-themes/HorizontalServerList.theme.css)
 
   Originally from [DiscordStyles/HorizontalServerList](https://github.com/DiscordStyles/HorizontalServerList), just with my variable preferences and fixes for Better Folders
