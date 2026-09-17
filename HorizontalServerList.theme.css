@@ -111,7 +111,7 @@
   }
 }
 
-.visual-refresh #app-mount {
+.visual-refresh:not(.refresh-title-bar-small) #app-mount {
   .actionButtons_e131a9 button {
     padding: 0 !important;
   }
