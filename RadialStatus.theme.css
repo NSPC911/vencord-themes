@@ -1,39 +1,206 @@
 /**
  * @name RadialStatus
- * @author Gibbu#1211
- * @version 2.0.0
- * @invite ZHthyCw
- * @description Changes the status icons to wrap around the avatar. Shape can be changed inside the theme file.
- * @source https://github.com/DiscordStyles/RadialStatus
- * @website https://www.gibbu.me
+ * @author heart_menace
+ * @version 1.17.2
+ * @description Draws Discord's status as a ring around the avatar instead of a dot bitten out of its corner and shows typing as dots over a dimmed picture.
+ * @source https://github.com/Just-Me-22/discord-themes
 */
 
-@import url('https://discordstyles.github.io/RadialStatus/RadialStatus.css');
-
 :root {
-  --rs-small-spacing: 2px; /* Gap between avatar and status for members list/dms | MUST end in px */
-  --rs-medium-spacing: 3px; /* Gap between avatar and status for User popout | MUST end in px */
-  --rs-large-spacing: 4px; /* Gap between avatar and status for User profiles | MUST end in px */
+  --cs-width: 0.1;
 
-  --rs-small-width: 2px; /* Thickness of status border for members list/dms | MUST end in px */
-  --rs-medium-width: 3px; /* Thickness of status border for User popout | MUST end in px */
-  --rs-large-width: 4px; /* Thickness of status border for User profile | MUST end in px */
+  --cs-online: var(--status-online, #23a55a);
+  --cs-idle: var(--status-idle, #f0b232);
+  --cs-dnd: var(--status-dnd, #f23f43);
+  --cs-offline: var(--status-offline, #80848e);
+  --cs-streaming: var(--status-streaming, #593695);
+  --cs-invisible: var(--status-offline, #80848e);
 
-  --rs-avatar-shape: 50%; /* 50% for round - 0% for square */
-
-  --rs-online-color: #43b581; /* Colour for online status */
-  --rs-idle-color: #faa61a; /* Colour for idle status */
-  --rs-dnd-color: #f04747; /* Colour for dnd status */
-  --rs-offline-color: #636b75; /* Colour for offline status */
-  --rs-streaming-color: #643da7; /* Colour for streaming status */
-  --rs-invisible-color: #747f8d; /* Colour for invisible status - Note: this will only show for your own invisibility */
-  --rs-self-speaking-color: #57d39b; /* Colour for speaking ring in the bottom left while in a voice chat/call */
-  --rs-phone-color: var(
-    --rs-online-color
-  ); /* Colour of the ring and phone icon when a user is on their phone  */
-  --rs-phone-visible: none; /* Visibility of the phone icon next to a users avatar. | block = visible | none = hidden */
+  --cs-typing-scrim: #000;
+  --cs-typing-dim: 0.55;
+  --cs-typing-dots-lift: 1px;
+  --cs-fade: 220ms ease;
+  --cs-speaking: var(--status-speaking, #57d39b);
+  --cs-group: var(--cs-offline);
+  --cs-group-w: 1.5px;
+  --cs-ring: color-mix(in srgb, var(--cs-speaking) 35%, transparent);
+  --cs-ring-w: 2px;
+  --cs-arc-w: 3px;
+  --cs-arc-spin: 4000ms;
 }
 
-:root {
-    --rs-version: "2.0.11.patch1";
+[class*="avatar_"] foreignObject:not([mask*="facepile"]) {
+  mask: none !important;
+  clip-path: circle(50%) !important;
+}
+
+[class*="avatar_"] foreignObject[mask*="facepile"]:not([mask*="back"]) {
+  mask: none !important;
+}
+
+[class*="avatar_"] svg[class*="svg__"],
+[class*="avatar_"] foreignObject[mask*="facepile"] {
+  overflow: visible !important;
+}
+
+[class*="avatar_"] foreignObject[mask*="facepile"] img,
+[class*="avatar_"] img[class*="circularImage__"] {
+  box-sizing: border-box;
+  border: var(--cs-group-w) solid var(--cs-group);
+  border-radius: 50%;
+}
+
+[class*="avatar_"] [class*="wrapper__"] > svg {
+  overflow: visible !important;
+}
+
+[class*="avatar_"] [class*="wrapper__"] > svg > circle {
+  display: none !important;
+}
+
+[class*="avatar_"] foreignObject[width="16"] ~ g { --cs-avatar: 16px; --cs-scale: 0.75; }
+[class*="avatar_"] foreignObject[width="20"] ~ g { --cs-avatar: 20px; --cs-scale: 0.8; }
+[class*="avatar_"] foreignObject[width="24"] ~ g { --cs-avatar: 24px; --cs-scale: 0.85; }
+[class*="avatar_"] foreignObject[width="32"] ~ g { --cs-avatar: 32px; --cs-scale: 1; }
+[class*="avatar_"] foreignObject[width="40"] ~ g { --cs-avatar: 40px; --cs-scale: 0.9; }
+[class*="avatar_"] foreignObject[width="48"] ~ g { --cs-avatar: 48px; --cs-scale: 0.8; }
+[class*="avatar_"] foreignObject[width="80"] ~ g { --cs-avatar: 80px; --cs-scale: 0.5; }
+[class*="avatar_"] foreignObject[width="120"] ~ g { --cs-avatar: 120px; --cs-scale: 0.38; }
+
+[class*="avatar_"] svg[class*="mask_"] > g {
+  transform: none !important;
+}
+
+[class*="avatar_"] rect[mask*="status-"],
+[class*="avatar_"] rect[class*="pointerEvents_"] {
+  --cs-w: calc(var(--cs-width) * var(--cs-scale, 1));
+  mask: none !important;
+  fill: none !important;
+  x: calc(var(--cs-avatar, 32px) * var(--cs-w) / 2);
+  y: calc(var(--cs-avatar, 32px) * var(--cs-w) / 2);
+  width: calc(var(--cs-avatar, 32px) * (1 - var(--cs-w)));
+  height: calc(var(--cs-avatar, 32px) * (1 - var(--cs-w)));
+  rx: 50%;
+  ry: 50%;
+  stroke-width: calc(var(--cs-avatar, 32px) * var(--cs-w));
+  transition: stroke var(--cs-fade);
+}
+
+[class*="avatar_"] svg[class*="mask_"] > g > svg {
+  overflow: visible;
+}
+
+[class*="avatar_"] svg[class*="mask_"] > g > svg > rect {
+  display: none !important;
+}
+
+[class*="avatar_"] rect[mask*="status-online"] { stroke: var(--cs-online); }
+[class*="avatar_"] rect[mask*="status-idle"] { stroke: var(--cs-idle); }
+[class*="avatar_"] rect[mask*="status-dnd"] { stroke: var(--cs-dnd); }
+[class*="avatar_"] rect[mask*="status-offline"] { stroke: var(--cs-offline); }
+[class*="avatar_"] rect[mask*="status-streaming"] { stroke: var(--cs-streaming); }
+
+[aria-label*=", Online"] rect[class*="pointerEvents_"] { stroke: var(--cs-online); }
+[aria-label*=", Idle"] rect[class*="pointerEvents_"] { stroke: var(--cs-idle); }
+[aria-label*=", Do Not Disturb"] rect[class*="pointerEvents_"] { stroke: var(--cs-dnd); }
+[aria-label*=", Offline"] rect[class*="pointerEvents_"] { stroke: var(--cs-offline); }
+[aria-label*=", Streaming"] rect[class*="pointerEvents_"] { stroke: var(--cs-streaming); }
+[aria-label*=", Invisible"] rect[class*="pointerEvents_"] { stroke: var(--cs-invisible); }
+
+section[class*="panels_"] g > svg:has(> rect[fill="#45a366"]) ~ rect[class*="pointerEvents_"],
+section[class*="panels_"] g > svg:has(> rect[fill="#23a55a"]) ~ rect[class*="pointerEvents_"] { stroke: var(--cs-online); }
+
+section[class*="panels_"] g > svg:has(> rect[fill="#ffc04e"]) ~ rect[class*="pointerEvents_"],
+section[class*="panels_"] g > svg:has(> rect[fill="#f0b232"]) ~ rect[class*="pointerEvents_"] { stroke: var(--cs-idle); }
+
+section[class*="panels_"] g > svg:has(> rect[fill="#da3e44"]) ~ rect[class*="pointerEvents_"],
+section[class*="panels_"] g > svg:has(> rect[fill="#f23f43"]) ~ rect[class*="pointerEvents_"] { stroke: var(--cs-dnd); }
+
+section[class*="panels_"] g > svg:has(> rect[fill="#84858d"]) ~ rect[class*="pointerEvents_"],
+section[class*="panels_"] g > svg:has(> rect[fill="#80848e"]) ~ rect[class*="pointerEvents_"] { stroke: var(--cs-offline); }
+
+section[class*="panels_"] g > svg:has(> rect[fill="#593695"]) ~ rect[class*="pointerEvents_"] { stroke: var(--cs-streaming); }
+
+section[class*="panels_"] g > svg:has(> rect[fill="#82858f"]) ~ rect[class*="pointerEvents_"],
+section[class*="panels_"] g > svg:has(> rect[fill="#82838b"]) ~ rect[class*="pointerEvents_"] { stroke: var(--cs-invisible); }
+
+[class*="avatar_"] svg[class*="mask_"] svg[class*="dots__"] {
+  overflow: visible;
+  pointer-events: none;
+}
+
+[class*="avatar_"] svg[class*="mask_"] svg[class*="dots__"] circle:first-child {
+  cx: calc(var(--cs-avatar, 32px) / 2 - 3.75px);
+  cy: calc(var(--cs-avatar, 32px) / 2 - 5px);
+  r: calc(var(--cs-avatar, 32px) / 2);
+  fill: var(--cs-typing-scrim) !important;
+  opacity: var(--cs-typing-dim) !important;
+}
+
+[class*="avatar_"] svg[class*="mask_"] svg[class*="dots__"] circle:nth-child(2),
+[class*="avatar_"] svg[class*="mask_"] svg[class*="dots__"] circle:nth-child(3) {
+  cy: calc(var(--cs-avatar, 32px) / 2 - 5px - var(--cs-typing-dots-lift));
+}
+
+[class*="avatar_"] svg[class*="mask_"] svg[class*="dots__"] circle:nth-child(2) {
+  cx: calc(var(--cs-avatar, 32px) / 2 - 6.25px);
+}
+
+[class*="avatar_"] svg[class*="mask_"] svg[class*="dots__"] circle:nth-child(3) {
+  cx: calc(var(--cs-avatar, 32px) / 2 - 1.25px);
+}
+
+[class*="avatarStack__"] [class*="avatarBorder__"] {
+  box-shadow: none !important;
+  background: none !important;
+  box-sizing: border-box !important;
+  border: var(--cs-arc-w) solid transparent !important;
+  border-top-color: var(--cs-speaking) !important;
+  border-radius: 50% !important;
+  animation: cs-arc var(--cs-arc-spin) linear infinite;
+}
+
+section[class*="panels_"] svg[class*="mask_"]:has([class*="avatarBorder__"]) rect[class*="pointerEvents_"] {
+  stroke: transparent !important;
+}
+
+[class*="voiceUser__"] [class*="userAvatar__"] {
+  position: relative;
+}
+
+[class*="voiceUser__"] [class*="userAvatar__"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  border: var(--cs-ring-w) solid var(--cs-ring);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+[class*="voiceUser__"] [class*="userAvatar__"][style*="box-shadow:"] {
+  box-shadow: none !important;
+}
+
+[class*="voiceUser__"] [class*="userAvatar__"][style*="box-shadow:"]::before {
+  border-width: var(--cs-arc-w);
+  border-color: transparent;
+  border-top-color: var(--cs-speaking);
+  animation: cs-arc var(--cs-arc-spin) linear infinite;
+}
+
+@keyframes cs-arc {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="avatar_"] rect[mask*="status-"],
+  [class*="avatar_"] rect[class*="pointerEvents_"] {
+    transition: none;
+  }
+
+  [class*="avatarStack__"] [class*="avatarBorder__"],
+  [class*="voiceUser__"] [class*="userAvatar__"][style*="box-shadow:"]::before {
+    animation: none;
+  }
 }
