@@ -31,7 +31,7 @@
       opacity 1s cubic-bezier(0.4, 1, 0.5, 1.5);
     flex: unset;
     padding-right: 1ch;
-    &:not(:has(> svg)) {
+    &:not(:has(> .dots_b88801)) {
       transform: translateY(calc(24px + var(--gap)));
       opacity: 0;
       pointer-events: none;
@@ -44,4 +44,11 @@
 }
 .scrollerSpacer__36d07 {
   height: calc(40px + var(--gap));
+}
+
+.dots_b88801 {
+  display: none !important;
+}
+.text_b88801 {
+  margin-left: 0 !important;
 }
